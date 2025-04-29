@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather app</title>
+  <link rel="icon" href="imgs/weather-news-fav.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- *========|> Font awesome library -->
+  <link rel="stylesheet" href="css/all.min.css" />
+  <!-- *========|> Bootstrap -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <!-- *========|> Main stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <div class="navLeft navbar-brand d-flex justify-content-start align-items-center gap-2">
+        <div>
+          <img src="imgs/logo.png" alt="">
+        </div>
+        <div>
+          <h1 class="m-0 fw-bold ">Weather</h1>
+          <span class="">tagline goes here </span>
+        </div>
+
+      </div>
+      <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto gap-5">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#">News</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#">Live Cameras</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#">Photos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#contact">Contact</a>
+          </li>
+
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <section class="pb-5">
+    <div class="form row end-0 start-0 d-flex justify-content-center container mx-auto">
+      <div class="my-5">
+        <form class="find-location position-relative my-2">
+          <input id="searchInput" autocomplete="off" type="text"
+            class="form-control shadow-none py-3 rounded-5 text-white" placeholder="Find your location... " />
+
+        </form>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row g-2 align-items-stretch">
+        <!-- &>>>>>>>>>>>>>>>>>>>>>>Today card<<<<<<<<<<<<<<<<<<<<<< -->
+        <div class="col-md-4 d-flex">
+          <div class="inner h-100 w-100 d-flex flex-column text-white todayDate" id="todayDate">
+            <div class="d-flex justify-content-between align-items-center bg-main1 px-3 py-2">
+              <div>
+                <p class="mb-0" id="dayName">Saturday</p>
+              </div>
+              <span>
+                <span id="dayNumber" class="my-auto">26</span>
+                <span id="todayMonthOfCity" class="my-auto">march</span>
+              </span>
+            </div>
+            <div class="bg-main2 px-4 flex-grow-1 d-flex flex-column justify-content-between">
+              <div>
+                <p class="py-4 fs-5" id="todayLocation">Cairo</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="display-1 fw-bolder">
+                    <span class="display-1" id="todayTemp">25</span>
+                    <span class="display-4"><sup>o</sup> C</span>
+                  </span>
+                  <img id="todayConditionImg" src="imgs/116.png" alt="Weather Image" />
+                </div>
+                <p id="todayWeatherDescription" class="fs-6 text-main py-3">clear</p>
+              </div>
+              <div class="d-flex pb-3 todayFooter">
+                <div class="d-flex align-items-center gap-2 me-3">
+                  <i class="fa-solid fa-umbrella"></i>
+                  <p class="mb-0" id="todayHumidity">20</p>
+                </div>
+                <div class="d-flex align-items-center gap-2 me-3">
+                  <i class="fa-solid fa-wind"></i>
+                  <p class="mb-0" id="todayWind">18</p>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <i class="fa-solid fa-compass"></i>
+                  <p class="mb-0" id="todayWindDirection">East</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- &>>>>>>>>>>>>>>>>>>>>>>Today card<<<<<<<<<<<<<<<<<<<<<< -->
+        <!-- *>>>>>>>>>>>>>>>>>>>>>>tomorrow card<<<<<<<<<<<<<<<<<<<<<< -->
+
+        <div class="col-md-4 d-flex">
+          <div class="inner h-100 w-100 d-flex flex-column text-white tomorrowDate" id="tomorrowDate">
+            <div class="d-flex justify-content-between align-items-center bg-main3 px-3 py-2">
+              <div class="mx-auto">
+                <p class="mb-0" id="tomorrowName">sunday</p>
+              </div>
+            </div>
+            <div class="bg-main4 px-4 flex-grow-1 d-flex flex-column justify-content-between">
+              <div class="item text-white p-3 text-center pt-5">
+                <img id="nextConditionImg" src="imgs/176.png" alt="weather img" class="mx-auto my-3" />
+                <h3>
+                  <span id="nextMaxTemp"></span>
+                  <span><sup>o</sup> C</span>
+                </h3>
+                <h5 class="text">
+                  <span id="nextMinTemp" class="nextMinTemp text-white-50"></span>
+                  <span class="text-white-50"><sup>o</sup> C</span>
+                </h5>
+                <p id="nextConditionText" class="nextConditionText fs-6 text-main">clear</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- *>>>>>>>>>>>>>>>>>>>>>>tomorrow card<<<<<<<<<<<<<<<<<<<<<< -->
+        <!-- ^>>>>>>>>>>>>>>>>>>>>>>After Tomorrow Section card<<<<<<<<<<<<<<<<<<<<<< -->
+
+        <div class="col-md-4 d-flex">
+          <div class="inner h-100 w-100 d-flex flex-column text-white afterTomorrowDate" id="afterTomorrowDate">
+            <div class="d-flex justify-content-between align-items-center bg-main1 px-3 py-2">
+              <div class="mx-auto">
+                <p class="mb-0" id="afterTomorrowName">sunday</p>
+              </div>
+            </div>
+            <div class="bg-main2 px-4 flex-grow-1 d-flex flex-column justify-content-between">
+              <div class="item text-white p-3 text-center pt-5">
+                <img id="afterNextConditionImg" src="imgs/176.png" alt="weather img" class="mx-auto my-3" />
+                <h3>
+                  <span id="afterNextMaxTemp"></span>
+                  <span><sup>o</sup> C</span>
+                </h3>
+                <h5 class="text">
+                  <span id="afterNextMinTemp" class="nextMinTemp text-white-50"></span>
+                  <span class="text-white-50"><sup>o</sup> C</span>
+                </h5>
+                <p id="afterNextConditionText" class="nextConditionText fs-6 text-main">clear</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ^>>>>>>>>>>>>>>>>>>>>>>After Tomorrow Section card<<<<<<<<<<<<<<<<<<<<<< -->
+      </div> <!-- row -->
+    </div> <!-- container -->
+
+
+  </section>
+  <footer id="contact" class="bg-main2 py-5 ">
+
+
+
+
+    <div class="container ">
+      <div class="row ">
+        <div class="col-md-9 ">
+          <div class="inner  ">
+            <div class="my-2">
+              <form class="find-location position-relative my-2">
+                <input id="emailInput" type="email" name="user email"
+                  class="form-control shadow-none py-2 rounded-5 text-white"
+                  placeholder="Enter your email to subscribe... " />
+                <button type="submit"
+                  class="btn btn-info text-white position-absolute  mt-0 me-0 top-0 end-0 px-4 py-2 rounded-5">
+                  subscribe
+                </button>
+              </form>
+            </div>
+
+
+
+          </div>
+        </div>
+
+        <div class="col-md-3 mt-2 ">
+
+          <div class="social-links d-flex justify-content-center align-items-center gap-2 ">
+            <a href="#" class=" rounded-circle  d-flex justify-content-center align-items-center"><i
+                class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class=" rounded-circle  d-flex justify-content-center align-items-center"><i
+                class="fa-brands fa-twitter"></i></a>
+            <a href="#" class=" rounded-circle  d-flex justify-content-center align-items-center"><i
+                class="fa-brands fa-google-plus-g"></i></a>
+            <a href="#" class=" rounded-circle pinterest  d-flex justify-content-center align-items-center"><i
+                class="fa-brands fa-pinterest-p"></i></a>
+          </div>
+
+        </div>
+
+        <div class="footerP mt-3 mb-3">
+          <p class="mb-0 text-white">Copyright 2025 Osman JS. Designed by <strong>Mahmoud Osman.</strong> All rights
+            reserved ©</p>
+
+        </div>
+      </div>
+
+
+    </div>
+
+  </footer>
+
+
+
+
+
+
+
+
+  <!-- ?========|> Boostrap Js file -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <!-- ?========|> Main Js File -->
+  <script src="js/index.js"></script>
+</body>
+
+</html>
