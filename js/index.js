@@ -113,12 +113,12 @@ function afterTomorrowWeather() {
 }
 
 navigator.geolocation.getCurrentPosition(
-  (location) => {
+  function (location) {
     const liveLocation =
       location.coords.latitude + `,` + location.coords.longitude;
     startApp(liveLocation);
   },
-  (error) => {
+  function (error) {
     console.warn("Could not access location, defaulting to Cairo");
     startApp("Cairo");
   }
@@ -128,8 +128,3 @@ navigator.geolocation.getCurrentPosition(
 searchInput.addEventListener("input", function () {
   if (searchInput.value.length >= 3) startApp(searchInput.value);
 });
-
-// const date = new Date();
-// console.log(date.getDate());
-// console.log(date.toLocaleDateString("en-US", { weekday: "" }));
-// console.log(date.toLocaleDateString("en-US", { month: "long" }));
